@@ -1,7 +1,7 @@
-import { Given, When, Then } from "./fixtures";
+import { And, When, Then } from "./fixtures";
 import { expect } from "@playwright/test";
 
-Given(`GET {string}`, async ({ ctx }, url: string) => {
+When(`GET {string}`, async ({ ctx }, url: string) => {
   ctx.response = await ctx.apiContext.get(url);
   if (ctx.response) {
     const books = await ctx.response.json();
@@ -14,4 +14,9 @@ Given(`GET {string}`, async ({ ctx }, url: string) => {
 
 Then(`status is {int}`, async ({ ctx }, code: number) => {
   expect(ctx.response.status()).toBe(code);
+});
+
+Then(`response array size is {int}`, async ({ ctx }, length: number) => {
+  const books = await ctx.response.json();
+  expect(books).toHaveLength(length);
 });

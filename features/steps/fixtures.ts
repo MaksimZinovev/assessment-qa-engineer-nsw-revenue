@@ -37,4 +37,4 @@ export const test = base.extend<Fixtures>({
   },
 });
 
-export const { Given, When, Then } = createBdd(test);
+export const { When, Then } = createBdd(test);
