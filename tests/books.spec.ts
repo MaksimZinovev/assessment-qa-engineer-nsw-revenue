@@ -58,6 +58,4 @@ test("T01 should display a list of available books", async ({}) => {
         console.error("Response is undefined.");
       }
   });
-
-
 })

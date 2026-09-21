@@ -1,5 +1,5 @@
 import { defineConfig, devices } from "@playwright/test";
-import { defineBddConfig } from "playwright-bdd";
+import { defineBddConfig, cucumberReporter } from "playwright-bdd";
 
 /**
  * Read environment variables from file.
@@ -15,7 +15,7 @@ import { defineBddConfig } from "playwright-bdd";
 
 const testDir = defineBddConfig({
   featuresRoot: "./features",
-  outputDir: '.features-gen'
+  outputDir: ".features-gen",
 });
 export default defineConfig({
   testDir: "./tests",
@@ -44,7 +44,10 @@ export default defineConfig({
       name: "api",
       testDir: "tests",
     },
-    { name: "bdd", testDir }
+    {
+      name: "bdd",
+      testDir, 
+       },  
   ],
 
   /* Run your local dev server before starting the tests */
