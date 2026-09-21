@@ -29,11 +29,14 @@ test("T01 should display a list of available books", async ({}) => {
   apiContext = await getApiContext();
   const response = await apiContext.get(BOOKS_ENDPOINT);
 
+
+  expect(response.status()).toBe(200);
   await expect(response).toBeOK();
   const books = await response.json();
   expect(books).toHaveLength(6);
   if (response) {
     console.dir(books, { depth: null });
+    console.log(`Response status code: ${response.status()}`);
   } else {
     console.error("Response is undefined.");
   }
@@ -55,5 +58,6 @@ test("T01 should display a list of available books", async ({}) => {
         console.error("Response is undefined.");
       }
   });
+
 
 })
