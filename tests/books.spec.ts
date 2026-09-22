@@ -51,7 +51,6 @@ test.describe("Books API Tests", () => {
     expect(responseTime).toBeLessThan(1000);
 
     if (response) {
-
       logger.info(`Response time:`, `${responseTime} ms `);
     } else {
       logger.error("Response is undefined.");
@@ -60,7 +59,6 @@ test.describe("Books API Tests", () => {
 
   test("T03 should have non-fiction book", async () => {
     apiContext = await getApiContext();
-
     const response = await apiContext.get(BOOKS_ENDPOINT);
     const books = await response.json();
 
@@ -72,7 +70,6 @@ test.describe("Books API Tests", () => {
   });
   test("T04 every ids should be number", async ({}, testInfo) => {
     apiContext = await getApiContext();
-
     const response = await apiContext.get(BOOKS_ENDPOINT);
     const books = await response.json();
 
