@@ -19,6 +19,7 @@ on:
           - INFO
           - DEBUG
           - ERROR
+
 jobs:
   test:
     timeout-minutes: 20
@@ -33,6 +34,8 @@ jobs:
       - name: Install deps
         run: npx playwright install-deps
       - name: Run tests
+        env:
+          LOG_LEVEL: "${{ inputs.logLevel }}"
         run: |
           echo "✅ the selected project is ${{ inputs.project }}"
           echo "✅ the selected log level is ${{ inputs.logLevel }}"
