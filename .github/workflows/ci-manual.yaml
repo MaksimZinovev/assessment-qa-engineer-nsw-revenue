@@ -30,13 +30,21 @@ jobs:
           node-version: lts/*
       - name: Install dependencies
         run: npm ci
-      - name: Install Playwright browser
+      - name: Install deps
         run: npx playwright install-deps
       - name: Run tests
-        run: npx playwright test  --project=api
+        run: |
+          echo "✅ the selected project is ${{ inputs.project }}"
+          echo "✅ the selected log level is ${{ inputs.logLevel }}"
+          npx playwright test  --project=api
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
+      - name: Print summary on success
+        if: ${{ success() }}
+        run: |
+          echo "Playwright tests executed 🚀"
+          echo "Total tests: "
