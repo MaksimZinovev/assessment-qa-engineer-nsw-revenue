@@ -1,7 +1,7 @@
 @api
-Feature: Books
+Feature: Books feature
 
-    Scenario: get books
+    Scenario: Get books scenario
         When GET "/books"
         Then status is 200
         And response array size is 6
