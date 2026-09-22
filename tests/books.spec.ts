@@ -1,4 +1,5 @@
 import { test, expect, request, APIRequestContext } from "@playwright/test";
+import { logger } from "./../support/logUtils";
 
 const BASE_URL = `http://simple-books-api.glitch.me/`;
 const BOOKS_ENDPOINT = `books`;
@@ -32,8 +33,8 @@ test.describe("Books API Tests", () => {
     const books = await response.json();
     expect(books).toHaveLength(6);
     if (response) {
-      console.dir(books, { depth: null });
-      console.log(`Response status code: ${response.status()}`);
+      logger.info("data:", books);
+      logger.info(`Response status code:`, `${response.status()}`);
     } else {
       console.error("Response is undefined.");
     }
@@ -50,9 +51,10 @@ test.describe("Books API Tests", () => {
     expect(responseTime).toBeLessThan(1000);
 
     if (response) {
-      console.info(`Response time: ${responseTime} ms `);
+
+      logger.info(`Response time:`, `${responseTime} ms `);
     } else {
-      console.error("Response is undefined.");
+      logger.error("Response is undefined.");
     }
   });
 

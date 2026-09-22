@@ -34,7 +34,7 @@ jobs:
         run: npx playwright install-deps
       - name: Run tests
         run: |
-          echo "✅ the sπelected project is ${{ inputs.project }}"
+          echo "✅ the selected project is ${{ inputs.project }}"
           echo "✅ the selected log level is ${{ inputs.logLevel }}"
           npm run "${{ inputs.project }}"
       - uses: actions/upload-artifact@v6

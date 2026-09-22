@@ -1,5 +1,8 @@
 import { defineConfig, devices } from "@playwright/test";
 import { defineBddConfig, cucumberReporter } from "playwright-bdd";
+import dotenv from 'dotenv'
+
+dotenv.config({quiet: true});
 
 /**
  * Read environment variables from file.

@@ -25,7 +25,7 @@ Then(`status is {int}`, async ({ ctx }, code: number) => {
 Then(`response array size is {int}`, async ({ ctx }, length: number) => {
   const books = await ctx.response.json();
   expect(books).toHaveLength(length);
-  logger.info("Response arrays size:", Array(books).length);
+  logger.info("Response arrays size:", books.length);
 });
 
 Then(`response time is within {int} ms`, async ({ ctx }, timeoutMs: number) => {
