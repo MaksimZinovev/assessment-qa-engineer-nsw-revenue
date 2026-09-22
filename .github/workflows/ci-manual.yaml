@@ -1,4 +1,4 @@
-name: Tests
+name: Tests Manual Dispatch
 on:
   workflow_dispatch:
     inputs:
@@ -36,7 +36,7 @@ jobs:
         run: |
           echo "✅ the selected project is ${{ inputs.project }}"
           echo "✅ the selected log level is ${{ inputs.logLevel }}"
-          npx playwright test  --project=api
+          npx playwright test  --project="${{ inputs.project }}"
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
