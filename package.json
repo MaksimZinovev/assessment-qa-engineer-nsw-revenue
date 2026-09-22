@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx bddgen && npx playwright test"
+    "bdd": "echo '1️⃣ Running BDD tests' && npx bddgen && npx playwright test --project=bdd",
+    "api": "echo '2️⃣ Running API tests' && npx playwright test --project=api"
   },
   "keywords": [],
   "author": "",
