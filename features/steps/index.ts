@@ -30,5 +30,5 @@ Then(`response array size is {int}`, async ({ ctx }, length: number) => {
 
 Then(`response time is within {int} ms`, async ({ ctx }, timeoutMs: number) => {
   expect(ctx.responseTime).toBeLessThan(timeoutMs);
-  logger.info("Response time:", ctx.responseTime);
+  logger.info("Response time, ms:", ctx.responseTime);
 });
